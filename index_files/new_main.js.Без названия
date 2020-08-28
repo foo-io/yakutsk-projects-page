@@ -1,0 +1,85 @@
+$(document).foundation();
+$( document ).ready(function() {
+  if (document.querySelector('#exampleFileUpload')) {
+    if ($('#exampleFileUpload').length){
+      document.getElementById("exampleFileUpload").onchange = function () {
+        document.getElementById("uploadFile").value = this.value;
+      };
+    }
+  }
+  if (document.querySelector('.main-banner')) {
+    $('.main-banner').owlCarousel({
+      items: 1,
+      margin: 0,
+      loop: true,
+      dots: true,
+      dotData: true,
+      dotsData: true,
+      nav:false,
+      autoplay:true,
+      autoplayTimeout:5000,
+      autoplayHoverPause: true
+    });
+    $('.owl-dots').wrapAll('<div class="parent-dots">');
+  }
+  if (document.querySelector('#biography')) {
+    $('#biography').owlCarousel({
+      items: 3,
+      margin: 32,
+      nav: true,
+      dots: true,
+      responsive:{
+        0:{
+          items:1,
+          margin: 20,
+        },
+        480:{
+          items:2,
+          margin: 20,
+        },
+        840:{
+          items:3,
+        }
+      }
+    })
+  }
+  if (document.querySelector('.owl-carousel')) {
+    $(".owl-carousel").owlCarousel();
+  }
+  if (document.querySelector('#hamburger')) {
+    $("#hamburger").click(function(){
+      if($("#hamburger").hasClass('open')){
+        $("#hamburger").removeClass('open');
+        $('#offCanvasLeftOverlap').foundation('close');
+      } else {
+        $("#hamburger").addClass('open');
+        $('#offCanvasLeftOverlap').foundation('open');
+        $('.is-closable').click(function(){
+          $("#hamburger").removeClass('open');
+        })
+      }
+    });
+  }
+
+  if (document.querySelector('#single-news-photo')) {
+    $('#single-news-photo').owlCarousel({
+      items: 3,
+      responsive:{
+        0:{
+          items:1,
+          autoWidth: false
+        },
+        640:{
+          items:3,
+          autoWidth: true
+        }
+      },
+      margin: 32,
+      nav: false,
+      dots: false,
+      center: true,
+      startPosition: 2,
+      loop: true
+    })
+  }
+})
